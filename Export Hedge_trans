@@ -1,0 +1,16 @@
+*Cant use xlsx engine because the format of the excel is xls (1997-2003);
+
+proc import datafile= "C:\Users\ATSEN\Desktop\SAS playground\NEET_BASE_EX_2\NEET_EX_4a\Data\hedge_trans.xls"
+			out= test222
+			dbms=xls
+			replace;run;
+
+proc print data=test222;
+run;
+
+
+libname neet1ex2 "C:\Users\ATSEN\Desktop\SAS playground\NEET_BASE_EX_2\NEET_EX_4a\Data\hedge_trans.xls";
+proc contents data=neet1ex2._all_;
+run;
+proc print data=NEET1EX2.'Sheet1$'n (obs=10);*information is gotten from proc contents;
+run;
